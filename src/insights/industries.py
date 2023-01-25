@@ -6,7 +6,10 @@ def get_unique_industries(path: str) -> List[str]:
     industries = []
     file = read(path)
     for industry in file:
-        if industry["industry"] not in industries:
+        if (
+            industry["industry"] not in industries
+            and industry["industry"] != ""
+        ):
             industries.append(industry["industry"])
     return industries
 
